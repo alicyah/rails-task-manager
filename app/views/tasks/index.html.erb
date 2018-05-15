@@ -2,11 +2,21 @@
   <h1>My tasks</h1>
   <% @tasks.each do |task| %>
     <div class="task-title">
-    <% if task.completed %>
-      <i class="far fa-check-circle"></i><%= link_to task.title, task_path(task.id) %>
-    <% else %>
-      <i class="far fa-circle"></i><%= link_to task.title, task_path(task.id) %>
-    <% end %>
+      <% if task.completed %>
+        <i class="far fa-check-circle"><%= link_to task.title, task_path(task.id) %>---</i>
+      <% else %>
+        <i class="far fa-circle"><%= link_to task.title, task_path(task.id) %>---</i>
+      <% end %>
+      <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
     </div>
   <% end %>
+  <div class="inner-links">
+    <%= link_to new_path do %>
+      <i class="fas fa-plus">Add a new task</i>
+    <% end %>
+  </div>
 </div>
+
+

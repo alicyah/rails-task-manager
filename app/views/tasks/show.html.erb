@@ -3,11 +3,14 @@
   <div class="task-details"><%= @task.details %></div>
   <div class="task-status">
     <% if @task.completed %>
-      <i class="far fa-check-circle"></i>This task is completed
+      <i class="far fa-check-circle">This task is completed</i>
     <% else %>
-     <i class="far fa-circle"></i>This task is not completed yet
+     <i class="far fa-circle">This task is not completed yet</i>
     <% end %>
   </div>
-  <div class="back-link"><%= link_to "Back to list", tasks_path %></div>
+  <%= link_to edit_path do %>
+    <button type="button" class="btn btn-outline-secondary">Edit task</button>
+  <% end %>
+  <div class="inner-links"><%= link_to "Back to list", tasks_path %></div>
 </div>
 
